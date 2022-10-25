@@ -10,38 +10,71 @@ import LocalAuthentication
 import SwiftUI
 
 
-struct Location: Identifiable {
-    let id = UUID()
-    let name: String
-    let coordinate: CLLocationCoordinate2D
-}
+
 
 struct ContentView: View {
     
     @State private var isUnlocked = false
     
-    @State private var mapReagion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-                                           
-    var locations = [
-        Location(name: "Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
-        Location(name: "Tower of LOndon", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
-    ]
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+    
+    @State private var locations = [Location]()
+    
+    @State private var selectedPlace: Location?
+    
     var body: some View {
-        NavigationView {
-            Map(coordinateRegion: $mapReagion, annotationItems: locations) { location in
+        ZStack {
+            Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
                 MapAnnotation(coordinate: location.coordinate) {
-                    NavigationLink {
-                        Text(location.name)
-                    } label: {
-                        Circle()
-                            .stroke(.red, lineWidth: 3)
+                    VStack {
+                        Image(systemName: "star.circle")
+                            .resizable()
+                            .foregroundColor(.red)
                             .frame(width: 44, height: 44)
+                            .background(.white)
+                            .clipShape(Circle())
+                        Text(location.name)
+                            .fixedSize()
+                        
+                    }
+                    .onTapGesture() {
+                        selectedPlace = location
                     }
                 }
+                
             }
-            .navigationTitle(isUnlocked ? "L. Explorer unlocked": "L. Eplorer locked")
+                .ignoresSafeArea()
+            Circle()
+                .fill(.blue)
+                .opacity(0.3)
+                .frame(width: 32, height: 32)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        let newLocation = Location(id: UUID(), name: "New location", description: "", latitude: mapRegion.center.latitude, longitude: mapRegion.center.longitude)
+                        locations.append(newLocation)
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .background(.black.opacity(0.75))
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .clipShape(Circle())
+                    .padding(.trailing)
+                }
+            }
         }
-        .onAppear(perform: authenticate)
+        .sheet(item: $selectedPlace) { place in
+            EditView(location: place) { newLocation in
+                if let index = locations.firstIndex(of: place) {
+                    locations[index] = newLocation
+                }
+            }        }
+        
     }
     
     func authenticate() {
