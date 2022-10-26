@@ -14,6 +14,8 @@
 		1F74DCD529005A88001D2DC3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74DCD429005A88001D2DC3 /* Location.swift */; };
 		1F74DCD7290067C2001D2DC3 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74DCD6290067C2001D2DC3 /* EditView.swift */; };
 		1F74DCD929019792001D2DC3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74DCD829019792001D2DC3 /* Result.swift */; };
+		1F74DCDB2909921E001D2DC3 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74DCDA2909921E001D2DC3 /* ContentView-ViewModel.swift */; };
+		1F74DCDD29099D42001D2DC3 /* FileMagaer-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F74DCDC29099D42001D2DC3 /* FileMagaer-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		1F74DCD429005A88001D2DC3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1F74DCD6290067C2001D2DC3 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		1F74DCD829019792001D2DC3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		1F74DCDA2909921E001D2DC3 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		1F74DCDC29099D42001D2DC3 /* FileMagaer-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileMagaer-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 			children = (
 				1F2E624428F3679B00B6C519 /* BucketListApp.swift */,
 				1F2E624628F3679B00B6C519 /* ContentView.swift */,
+				1F74DCDC29099D42001D2DC3 /* FileMagaer-DocumentsDirectory.swift */,
+				1F74DCDA2909921E001D2DC3 /* ContentView-ViewModel.swift */,
 				1F74DCD829019792001D2DC3 /* Result.swift */,
 				1F74DCD6290067C2001D2DC3 /* EditView.swift */,
 				1F74DCD429005A88001D2DC3 /* Location.swift */,
@@ -147,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2E624728F3679B00B6C519 /* ContentView.swift in Sources */,
+				1F74DCDB2909921E001D2DC3 /* ContentView-ViewModel.swift in Sources */,
 				1F74DCD929019792001D2DC3 /* Result.swift in Sources */,
+				1F74DCDD29099D42001D2DC3 /* FileMagaer-DocumentsDirectory.swift in Sources */,
 				1F74DCD529005A88001D2DC3 /* Location.swift in Sources */,
 				1F74DCD7290067C2001D2DC3 /* EditView.swift in Sources */,
 				1F2E624528F3679B00B6C519 /* BucketListApp.swift in Sources */,
@@ -282,7 +290,7 @@
 				DEVELOPMENT_TEAM = P3K32DW2KW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need your data.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -312,7 +320,7 @@
 				DEVELOPMENT_TEAM = P3K32DW2KW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need your data.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

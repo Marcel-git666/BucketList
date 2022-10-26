@@ -40,7 +40,7 @@ struct EditView: View {
                             /*@START_MENU_TOKEN@*/Text(page.title)/*@END_MENU_TOKEN@*/
                                 .font(.headline)
                             + Text(": ")
-                            + Text("Page description here")
+                            + Text(page.description)
                                 .italic()
                         }
                     case .failed:
